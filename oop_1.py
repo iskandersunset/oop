@@ -7,6 +7,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from login_page import Login_page
+
 
 class Test_1():
 
@@ -23,20 +25,8 @@ class Test_1():
         login_standard_user = "standard_user"
         login_password_user = "secret_sauce"
 
-        # 1. Авторизоваться на сайте
-        user_name = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "user-name")))
-        user_name.send_keys(login_standard_user)
-        print("Ввели логин")
-        time.sleep(1)
-
-        user_pass = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "password")))
-        user_pass.send_keys(login_password_user)
-        print("Ввели пароль")
-        time.sleep(1)
-
-        user_pass.send_keys(Keys.RETURN)
-        print('Нажали Еnter\n', '--' * 20)
-        time.sleep(1)
+        login = Login_page(driver)
+        login.authorization(login_standard_user, login_password_user)
 
         select_product = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "add-to-cart-sauce-labs-backpack")))
         select_product.click()
