@@ -12,7 +12,7 @@ class Login_page:
         self.driver = driver
 
     def authorization(self, login_name, login_password):
-        # 1. Авторизоваться на сайте
+        # 1. Авторизация на сайте
         user_name = WebDriverWait(self.driver, 7).until(EC.element_to_be_clickable((By.ID, "user-name")))
         user_name.send_keys(login_name)
         print("Ввели логин")
