@@ -16,10 +16,12 @@ class Login_page:
         user_name = WebDriverWait(self.driver, 7).until(EC.element_to_be_clickable((By.ID, "user-name")))
         user_name.send_keys(login_name)
         print("Ввели логин")
+        time.sleep(1)
 
         user_pass = WebDriverWait(self.driver, 7).until(EC.element_to_be_clickable((By.ID, "password")))
         user_pass.send_keys(login_password)
         print("Ввели пароль")
+        time.sleep(1)
 
         user_pass.send_keys(Keys.RETURN)
         print('Нажали Еnter\n', '--' * 20)
