@@ -16,6 +16,7 @@ base_url = 'https://www.saucedemo.com/'
 driver.get(base_url)
 
 for i in range(len(users_login)):
+    print('Start TEST')
     print('Заходим пользователем:', users_login[i])
     login = Login_page(driver)
     login.authorization(users_login[i], users_password)
