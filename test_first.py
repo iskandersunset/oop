@@ -9,8 +9,6 @@ class Test_login:
 
     def test_login(self, driver, base_url):
 
-        print('Start TEST')
-
         succes_test = WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.CLASS_NAME, "title")))
         value_succes_test = succes_test.text
         assert value_succes_test == 'PRODUCTS'
