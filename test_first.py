@@ -4,12 +4,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from login_page import Login_page
-
 
 class Test_login:
 
-    def test_login(self, driver):
+    def test_login(self, driver, base_url):
 
         print('Start TEST')
 
@@ -17,4 +15,6 @@ class Test_login:
         value_succes_test = succes_test.text
         assert value_succes_test == 'PRODUCTS'
         print('TEST PASSED\n', '=====' * 20)
-        time.sleep(5)
+        time.sleep(3)
+        driver.get(base_url)
+
